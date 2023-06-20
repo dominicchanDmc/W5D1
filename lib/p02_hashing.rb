@@ -4,11 +4,23 @@ end
 
 class Array
   def hash
+    ahash =0 
+   return 1 if self.empty?
+    each_with_index do |ele,i|
+      ahash += ele.hash ** (1 / (i + 1))
+    end 
+    ahash
   end
 end
 
 class String
   def hash
+    ahash =0 
+   return 1 if self == ''
+    each_char.with_index do |ele,i|
+      ahash += ele.hash ** (1 / (i + 1))
+    end 
+    ahash
   end
 end
 
